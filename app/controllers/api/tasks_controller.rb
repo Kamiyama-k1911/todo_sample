@@ -1,4 +1,6 @@
 class Api::TasksController < ApplicationController
+  protect_from_forgery
+
   def index
     @tasks = Task.order(updated_at: "DESC")
   end
@@ -24,6 +26,6 @@ class Api::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:tasks).permit(:name,:is_done)
+    params.require(:task).permit(:name,:is_done)
   end
 end
