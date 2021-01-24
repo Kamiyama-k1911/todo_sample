@@ -6,9 +6,9 @@ class Api::TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      render :show. status: :created
+      render :show, status: :created
     else
-      render :json @task.errors, status: :unprocessable_entity
+      render json: @task.errors, status: :unprocessable_entity
     end
   end
 
